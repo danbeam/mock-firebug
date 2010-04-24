@@ -12,48 +12,45 @@
  *
  */
 
-;;;;;	(
-		function( consoleExists )
-		{
-			if( consoleExists && ( window.console.firebug || window.console.firebugVersion ) ){ return; }
+;;;;;(function (consoleExists) {
 
-			var	funcs	=
-				[
-					"assert",
-					"count",
-					"clear",
-					"debug",
-					"dir",
-					"dirxml",
-					"info",
-					"error",
-					"getFirebugElement",
-					"group",
-					"groupEnd",
-					"groupCollapsed",
-					"log",
-					"notifyFirebug",
-					"profile",
-					"profileEnd",
-					"time",
-					"timeEnd",
-					"trace",
-					"warn"
-				],
+	if (consoleExists && (window.console.firebug || window.console.firebugVersion)) return;
 
-				i	= 0,
-				len	= funcs.length,
-				blank	= function( ){ },
+	var	funcs =
+		[ "assert"
+		, "count"
+		, "clear"
+		, "debug"
+		, "dir"
+		, "dirxml"
+		, "info"
+		, "error"
+		, "getFirebugElement"
+		, "group"
+		, "groupEnd"
+		, "groupCollapsed"
+		, "log"
+		, "notifyFirebug"
+		, "profile"
+		, "profileEnd"
+		, "time"
+		, "timeEnd"
+		, "trace"
+		, "warn"
+		],
 
-				obj	=
-				{
-					"element"		: { },
-					"firebug"		: "fake",
-					"userObjects"		: [ ]
-				};
+		i	= 0,
+		len	= funcs.length,
+		blank	= function(){},
+
+		obj	= {
+			"element"	: {},
+			"firebug"	: "fake",
+			"userObjects"	: []
+		};
 				
-			while( i < len ){ obj[ funcs[ i++ ] ] = blank; }
+		while (i < len){ obj[funcs[i++]] = blank; }
 
-			window.console = obj;
-		}
-	)( "undefined" !== typeof window.console );
+		window.console = obj;
+
+})("undefined" !== typeof window.console);
