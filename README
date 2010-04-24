@@ -1,0 +1,12 @@
+ensureConsole.js
+
+This file allows you to leave all your favorite Firebug commands
+i.e. console.log, console.clear, etc. in your code in dev or
+production and it *shouldn't* result in any errors (an object
+of empty functions containing the same object attribute names
+is inserted into the Firebug console's place).
+
+However, leaving this code in production is still probably
+not advisable, as additional logging/debugging lines in
+your code will cost you in network bandwidth and wastes
+of time in simply every call to a blank function unnecessarilly.
